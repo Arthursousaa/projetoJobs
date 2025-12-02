@@ -1,0 +1,26 @@
+@model projetoJobs.Models.Vaga
+@{
+    var empresas = ViewBag.Empresas;
+}
+
+<div class="container mt-4">
+    <h2>Criar Vaga</h2>
+
+    <form method="post">
+        <input class="form-control mb-2" name="NomeVaga" placeholder="Nome da Vaga" />
+        <input class="form-control mb-2" name="Cidade" placeholder="Cidade" />
+        <input class="form-control mb-2" name="Estado" placeholder="Estado" />
+        <input class="form-control mb-2" name="TipoContrato" placeholder="Tipo Contrato" />
+        <input class="form-control mb-2" name="NivelExperiencia" placeholder="Nível" />
+        <input class="form-control mb-2" name="DescricaoVaga" placeholder="Descrição" />
+
+        <select class="form-control mb-2" name="EmpresaId">
+            @foreach (var e in empresas)
+            {
+                <option value="@e.Id">@e.Nome</option>
+            }
+        </select>
+
+        <button class="btn btn-success">Salvar</button>
+    </form>
+</div>

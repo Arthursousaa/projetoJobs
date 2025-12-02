@@ -5,7 +5,7 @@ namespace projetoJobs.Models;
 
 public partial class Vaga
 {
-    public int IdVaga { get; set; }
+    public int Id { get; set; }
 
     public string NomeVaga { get; set; } = null!;
 
@@ -25,7 +25,9 @@ public partial class Vaga
 
     public string? DescricaoVaga { get; set; }
 
-    public int EmpresaId { get; set; }
+    public int EmpresasId { get; set; }
 
-    public virtual Empresa Empresa { get; set; } = null!;
+    public virtual ICollection<Curriculo> Curriculos { get; set; } = new List<Curriculo>();
+
+    public virtual Empresa Empresas { get; set; } = null!;
 }

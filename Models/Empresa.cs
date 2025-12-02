@@ -5,7 +5,7 @@ namespace projetoJobs.Models;
 
 public partial class Empresa
 {
-    public int IdEmpresa { get; set; }
+    public int Id { get; set; }
 
     public string Nome { get; set; } = null!;
 

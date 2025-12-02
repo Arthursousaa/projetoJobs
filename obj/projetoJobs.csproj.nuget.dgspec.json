@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Área de Trabalho\\projetoJobs\\projetoJobs\\projetoJobs.csproj": {}
+    "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\projetoJobs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Área de Trabalho\\projetoJobs\\projetoJobs\\projetoJobs.csproj": {
+    "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\projetoJobs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Área de Trabalho\\projetoJobs\\projetoJobs\\projetoJobs.csproj",
+        "projectUniqueName": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\projetoJobs.csproj",
         "projectName": "projetoJobs",
-        "projectPath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Área de Trabalho\\projetoJobs\\projetoJobs\\projetoJobs.csproj",
+        "projectPath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\projetoJobs.csproj",
         "packagesPath": "C:\\Users\\arthur.smachado1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Área de Trabalho\\projetoJobs\\projetoJobs\\obj\\",
+        "outputPath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
