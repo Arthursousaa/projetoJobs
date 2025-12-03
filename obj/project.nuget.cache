@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lXMuJp9aYYw=",
+  "dgSpecHash": "C4H3Bn4XpHk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\Arquivos de Chat do Microsoft Teams\\Área de Trabalho\\BACKEND\\projetoJobs\\projetoJobs.csproj",
+  "projectFilePath": "C:\\Users\\arthur.smachado1\\OneDrive - SENAC - SP\\projetoJobs\\projetoJobs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arthur.smachado1\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\arthur.smachado1\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
