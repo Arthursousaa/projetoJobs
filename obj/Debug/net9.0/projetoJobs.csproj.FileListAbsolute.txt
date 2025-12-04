@@ -581,9 +581,7 @@ C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\pro
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\scopedcss\bundle\projetoJobs.styles.css
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\scopedcss\projectbundle\projetoJobs.bundle.scp.css
-C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\gxrbxbvqh1-b9sayid5wm.gz
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\ce71krdwt7-61n19gt1b8.gz
-C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\g8aqw5233n-xtxxf3hu2r.gz
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\s2gzhx9ana-t1cqhe9u97.gz
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\im1jrm9ud8-c2jlpeoesf.gz
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\bztnc1utu2-sejl45xvog.gz
@@ -660,3 +658,5 @@ C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\ref
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\projetoJobs.pdb
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\projetoJobs.genruntimeconfig.cache
 C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\ref\projetoJobs.dll
+C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\g8aqw5233n-4lnq17s6gv.gz
+C:\Users\arthur.smachado1\OneDrive - SENAC - SP\projetoJobs\obj\Debug\net9.0\compressed\gxrbxbvqh1-zdyptumezt.gz

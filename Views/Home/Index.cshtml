@@ -1,8 +1,161 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreiras | Sua Empresa (HTML/CSS Puro)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <header class="header">
+        <div class="logo">Sua **Empresa**</div>
+        <div class="auth-buttons">
+            <a href="#authModal" class="btn primary">Login</a>
+            <a href="#authModal" class="btn secondary">Cadastre-se</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-search" id="heroSection">
+            <h1>Sua Próxima Grande Oportunidade.</h1>
+            <p>Junte-se a nós e comece a construir o futuro hoje.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Busque por cargo, cidade ou área...">
+                <button class="btn search-btn">Buscar</button>
+            </div>
+        </section>
+        
+        <section id="vaga1" class="job-detail-view hidden-on-default">
+            <a href="#" class="btn back-btn">&larr; Voltar para a Lista</a>
+            
+            <div id="jobDetailContent">
+                <section class="job-detail-header">
+                    <h3 class="detail-title">Desenvolvedor Full Stack Sênior</h3>
+                    <p class="location">São Paulo, BR (Híbrido) | Tempo Integral</p>
+                    <div class="tags-container" style="margin-bottom: 20px;">
+                        <span class="tag tech">React</span>
+                        <span class="tag tech">Node.js</span>
+                        <span class="tag">Nova!</span>
+                    </div>
+                    <button class="btn primary large-btn">Candidatar-se Agora</button>
+                </section>
+
+                <section class="job-description-content">
+                    <h3 style="color: var(--primary-color);">Sobre a Oportunidade</h3>
+                    <p>Liderar o design e implementação de novas funcionalidades no Front-end (React) e desenvolver e manter APIs RESTful robustas usando Node.js.</p>
+                    
+                    <h3 style="margin-top: 25px; color: var(--primary-color);">Responsabilidades Chave</h3>
+                    <ul style="list-style-type: square; margin-left: 20px;">
+                        <li>Arquitetar soluções escaláveis.</li>
+                        <li>Mentorar desenvolvedores juniores e plenos.</li>
+                        <li>Garantir alta performance e qualidade de código.</li>
+                    </ul>
+
+                    <h3 style="margin-top: 25px; color: var(--primary-color);">Requisitos Mínimos</h3>
+                    <ul style="list-style-type: square; margin-left: 20px;">
+                        <li>5+ anos de experiência Full Stack.</li>
+                        <li>Proficiência em JavaScript/TypeScript e React.</li>
+                        <li>Experiência com Node.js e serviços Cloud (AWS/Azure).</li>
+                    </ul>
+                    
+                    <button class="btn primary large-btn" style="margin-top: 30px;">Candidatar-se à Vaga</button>
+                </section>
+            </div>
+        </section>
+
+        <section class="featured-jobs" id="jobListView">
+            <a id="carreiras"></a>
+            <h2>Vagas em Destaque</h2>
+            <div class="job-grid" id="jobGrid">
+                
+                <div class="job-card">
+                    <h3>Desenvolvedor Full Stack Sênior</h3>
+                    <p class="location">São Paulo, BR (Híbrido)</p>
+                    <span class="tag tech">React</span>
+                    <span class="tag tech">Node.js</span>
+                    <span class="tag">Nova!</span>
+                    <a href="#vaga1" class="details-link">Ver Vaga &rarr;</a>
+                </div>
+                
+                <div class="job-card">
+                    <h3>UX/UI Designer Pleno</h3>
+                    <p class="location">Remoto</p>
+                    <span class="tag design">Figma</span>
+                    <span class="tag design">UX Research</span>
+                    <span class="tag remote">Remoto</span>
+                    <a href="#vaga2" class="details-link">Ver Vaga &rarr;</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>Gerente de Contas B2B</h3>
+                    <p class="location">Rio de Janeiro, BR</p>
+                    <span class="tag sales">CRM</span>
+                    <span class="tag sales">Vendas</span>
+                    <a href="#vaga3" class="details-link">Ver Vaga &rarr;</a>
+                </div>
+                
+                <div class="job-card">
+                    <h3>Engenheiro de Dados Júnior</h3>
+                    <p class="location">Remoto</p>
+                    <span class="tag tech">Python</span>
+                    <span class="tag tech">AWS</span>
+                    <span class="tag remote">Remoto</span>
+                    <a href="#vaga4" class="details-link">Ver Vaga &rarr;</a>
+                </div>
+
+            </div>
+            
+            <a href="#jobListView" class="all-jobs-link">Ver Todas as Vagas (4)</a>
+        </section>
+
+        <section class="culture-cta" id="cultureCta">
+            <a id="cultura"></a>
+            <h2>Conheça Nossa Cultura</h2>
+            <p>Somos mais do que um time, somos inovadores. Veja como é trabalhar aqui.</p>
+            <a href="#" class="btn culture-btn">Descubra Nossos Valores</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">&times;</a>
+            
+            <input type="radio" name="auth-tab" id="tab-login" checked class="tab-input hidden">
+            <input type="radio" name="auth-tab" id="tab-register" class="tab-input hidden">
+            
+            <div class="auth-tabs">
+                <label for="tab-login" class="tab-btn">Login</label>
+                <label for="tab-register" class="tab-btn">Cadastro</label>
+            </div>
+
+            <div id="login" class="auth-form form-login">
+                <h3>Acesso do Candidato</h3>
+                <form>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <button type="submit" class="submit-btn">Entrar</button>
+                    <a href="#" class="forgot-link">Esqueci minha senha</a>
+                </form>
+            </div>
+
+            <div id="register" class="auth-form form-register">
+                <h3>Crie Sua Conta</h3>
+                <form>
+                    <input type="text" placeholder="Nome Completo" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Criar Senha" required>
+                    <input type="password" placeholder="Confirmar Senha" required>
+                    <button type="submit" class="submit-btn">Cadastrar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </body>
+</html>
