@@ -9,13 +9,16 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">Sua **Empresa**</div>
-        <div class="auth-buttons">
-            <a href="#authModal" class="btn primary">Login</a>
-            <a href="#authModal" class="btn secondary">Cadastre-se</a>
-        </div>
-    </header>
+<header class="header">
+    <div class="logo">JOBS</div>
+    <div class="auth-buttons">
+
+       <a href="/Auth/Login" class="btn primary" id="loginBtn">Login</a>
+    <a href="/Auth/Register" class="btn secondary" id="registerBtn">Cadastre-se</a>
+
+    </div>
+</header>
+
 
     <main>
         <section class="hero-search" id="heroSection">
@@ -27,9 +30,8 @@
             </div>
         </section>
         
-        <section id="vaga1" class="job-detail-view hidden-on-default">
+        <section id="vaga1" class="job-detail-view hidden-on-default hidden">
             <a href="#" class="btn back-btn">&larr; Voltar para a Lista</a>
-            
             <div id="jobDetailContent">
                 <section class="job-detail-header">
                     <h3 class="detail-title">Desenvolvedor Full Stack Sênior</h3>
@@ -41,25 +43,21 @@
                     </div>
                     <button class="btn primary large-btn">Candidatar-se Agora</button>
                 </section>
-
                 <section class="job-description-content">
                     <h3 style="color: var(--primary-color);">Sobre a Oportunidade</h3>
                     <p>Liderar o design e implementação de novas funcionalidades no Front-end (React) e desenvolver e manter APIs RESTful robustas usando Node.js.</p>
-                    
                     <h3 style="margin-top: 25px; color: var(--primary-color);">Responsabilidades Chave</h3>
                     <ul style="list-style-type: square; margin-left: 20px;">
                         <li>Arquitetar soluções escaláveis.</li>
                         <li>Mentorar desenvolvedores juniores e plenos.</li>
                         <li>Garantir alta performance e qualidade de código.</li>
                     </ul>
-
                     <h3 style="margin-top: 25px; color: var(--primary-color);">Requisitos Mínimos</h3>
                     <ul style="list-style-type: square; margin-left: 20px;">
                         <li>5+ anos de experiência Full Stack.</li>
                         <li>Proficiência em JavaScript/TypeScript e React.</li>
                         <li>Experiência com Node.js e serviços Cloud (AWS/Azure).</li>
                     </ul>
-                    
                     <button class="btn primary large-btn" style="margin-top: 30px;">Candidatar-se à Vaga</button>
                 </section>
             </div>
@@ -106,7 +104,6 @@
                 </div>
 
             </div>
-            
             <a href="#jobListView" class="all-jobs-link">Ver Todas as Vagas (4)</a>
         </section>
 
@@ -122,40 +119,38 @@
         <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
     </footer>
 
-    <div id="authModal" class="modal">
+    <!-- Modal Login/Cadastro -->
+    <div id="authModal" class="modal hidden">
         <div class="modal-content">
-            <a href="#" class="close-btn">&times;</a>
-            
-            <input type="radio" name="auth-tab" id="tab-login" checked class="tab-input hidden">
-            <input type="radio" name="auth-tab" id="tab-register" class="tab-input hidden">
-            
+            <span class="close-btn" id="closeModal">&times;</span>
+
             <div class="auth-tabs">
-                <label for="tab-login" class="tab-btn">Login</label>
-                <label for="tab-register" class="tab-btn">Cadastro</label>
+                <button class="tab-btn" id="tabLoginBtn">Login</button>
+                <button class="tab-btn" id="tabRegisterBtn">Cadastro</button>
             </div>
 
-            <div id="login" class="auth-form form-login">
+            <!-- Login -->
+            <div id="login" class="auth-form">
                 <h3>Acesso do Candidato</h3>
-                <form>
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="password" placeholder="Senha" required>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="E-mail" required>
+                    <input type="password" id="loginSenha" placeholder="Senha" required>
                     <button type="submit" class="submit-btn">Entrar</button>
-                    <a href="#" class="forgot-link">Esqueci minha senha</a>
                 </form>
             </div>
 
-            <div id="register" class="auth-form form-register">
+            <!-- Cadastro -->
+            <div id="register" class="auth-form hidden">
                 <h3>Crie Sua Conta</h3>
-                <form>
-                    <input type="text" placeholder="Nome Completo" required>
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="password" placeholder="Criar Senha" required>
-                    <input type="password" placeholder="Confirmar Senha" required>
+                <form id="registerForm">
+                    <input type="text" id="regNome" placeholder="Nome Completo" required>
+                    <input type="email" id="regEmail" placeholder="E-mail" required>
+                    <input type="password" id="regSenha" placeholder="Criar Senha" required>
+                    <input type="password" id="regConfSenha" placeholder="Confirmar Senha" required>
                     <button type="submit" class="submit-btn">Cadastrar</button>
                 </form>
             </div>
-
         </div>
     </div>
-    </body>
+</body>
 </html>

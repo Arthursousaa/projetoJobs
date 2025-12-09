@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace projetoJobs.Models;
-
-public partial class Curriculo
+﻿namespace projetoJobs.Models
 {
-    public int Id { get; set; }
+    public class Curriculo
+    {
+        public int Id { get; set; }
+        public string? Nome_Arquivo { get; set; }
+        public string? Caminho_Arquivo { get; set; }
+        public DateTime Data_Envio { get; set; } = DateTime.Now;
 
-    public string? NomeArquivo { get; set; }
+        // FK
+        public int Candidatos_Id { get; set; }
+        public Candidato? Candidato { get; set; }
 
-    public string? CaminhoArquivo { get; set; }
-
-    public DateTime? DataEnvio { get; set; }
-
-    public int CandidatosId { get; set; }
-
-    public int VagasId { get; set; }
-
-    public virtual Candidato Candidatos { get; set; } = null!;
-
-    public virtual Vaga Vagas { get; set; } = null!;
+        public int Vagas_Id { get; set; }
+        public Vaga? Vaga { get; set; }
+    }
 }

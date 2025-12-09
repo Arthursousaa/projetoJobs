@@ -6,19 +6,24 @@ namespace projetoJobs.Controllers
 {
     public class EmpresasController : Controller
     {
-        public JobsContext _context = new JobsContext();
+        private readonly AppDbContext _context;
+
+        public EmpresasController(AppDbContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Empresas.ToList());
         }
 
-        // [HttpPost]
-        // public IActionResult Criar(Empresa empresa)
-        // {
-        //     _context.Empresas.Add(empresa);
-        //     _context.SaveChanges();
-        //     return RedirectToAction("Index");
-        // }
+        [HttpPost]
+        public IActionResult Criar(Empresa empresa)
+        {
+            _context.Empresas.Add(empresa);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

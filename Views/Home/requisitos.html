@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreiras | Sua Empresa (HTML/CSS Puro)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* --- Estilos básicos para modal --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">JOBS</div>
+    <div class="auth-buttons">
+        <a href="#" class="btn primary" id="loginBtn">Login</a>
+        <a href="#" class="btn secondary" id="registerBtn">Cadastre-se</a>
+
+    </div>
+</header>
+
+<main>
+    <section class="hero-search" id="heroSection">
+        <h1>Sua Próxima Grande Oportunidade.</h1>
+        <p>Junte-se a nós e comece a construir o futuro hoje.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Busque por cargo, cidade ou área...">
+            <button class="btn search-btn">Buscar</button>
+        </div>
+    </section>
+    
+    <!-- Aqui ficam suas vagas, cultura, etc. -->
+    <!-- Mantenha todo o seu conteúdo existente aqui -->
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Modal de Autenticação -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <a href="#" class="close-btn" id="closeModal">&times;</a>
+
+        <input type="radio" name="auth-tab" id="tab-login" checked class="tab-input hidden">
+        <input type="radio" name="auth-tab" id="tab-register" class="tab-input hidden">
+
+        <div class="auth-tabs">
+            <label for="tab-login" class="tab-btn">Login</label>
+            <label for="tab-register" class="tab-btn">Cadastro</label>
+        </div>
+
+        <!-- Login -->
+        <div id="login" class="auth-form form-login">
+            <h3>Acesso do Candidato</h3>
+            <form id="loginForm">
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="submit-btn">Entrar</button>
+                <a href="#" class="forgot-link">Esqueci minha senha</a>
+            </form>
+        </div>
+
+        <!-- Cadastro -->
+        <div id="register" class="auth-form form-register">
+            <h3>Crie Sua Conta</h3>
+            <form id="registerForm">
+                <input type="text" placeholder="Nome Completo" id="nome" required>
+                <input type="email" placeholder="E-mail" id="email" required>
+                <input type="password" placeholder="Criar Senha" required>
+                <input type="password" placeholder="Confirmar Senha" required>
+                <button type="submit" class="submit-btn">Cadastrar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- SCRIPT NO FINAL DO BODY -->
+<script>
+    // Seleciona elementos do modal e botões
+    const authModal = document.getElementById('authModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const closeBtn = document.getElementById('closeModal');
+
+    // Abrir modal no login
+    loginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        authModal.style.display = 'block';
+        document.getElementById('tab-login').checked = true;
+    });
+
+    // Abrir modal no cadastro
+    registerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        authModal.style.display = 'block';
+        document.getElementById('tab-register').checked = true;
+    });
+
+    // Fechar modal
+    closeBtn.addEventListener('click', () => {
+        authModal.style.display = 'none';
+    });
+
+    // Fechar modal ao clicar fora
+    window.addEventListener('click', (e) => {
+        if(e.target == authModal) authModal.style.display = 'none';
+    });
+
+    // Cadastro: redireciona para requisitos.html com dados do usuário
+    const registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        window.location.href = `requisitos.html?nome=${encodeURIComponent(nome)}&email=${encodeURIComponent(email)}`;
+    });
+</script>
+
+</body>
+</html>

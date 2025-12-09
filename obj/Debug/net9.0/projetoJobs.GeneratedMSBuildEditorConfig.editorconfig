@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = projetoJobs
 build_property.RootNamespace = projetoJobs
@@ -20,16 +28,32 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Cadastro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcQ2FkYXN0cm8uY3NodG1s
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcSW5kZXguY3NodG1s
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/LoginCandidato.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbkNhbmRpZGF0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcTG9naW4uY3NodG1s
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/LoginEmpresa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbkVtcHJlc2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/RegisterCandidato.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3RlckNhbmRpZGF0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Auth/RegisterEmpresa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3RlckVtcHJlc2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Candidatos/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Home/Index.cshtml]

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using projetoJobs.Contexts;
 
 namespace projetoJobs.Controllers
 {

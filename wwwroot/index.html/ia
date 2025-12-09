@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Plataforma de Emprego - ProjetoJobs</title>
+<style>
+body { font-family: Arial; margin: 40px; }
+input, select, textarea { width: 300px; padding: 8px; margin-bottom: 10px; display: block; }
+button { padding: 10px 20px; margin-top: 10px; }
+.resultado, .candidatos { margin-top: 20px; }
+h2 { margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<h1>Cadastrar Vaga</h1>
+<form id="vagaForm">
+    <label>Nome da Vaga:</label>
+    <input type="text" id="nomeVaga" required>
+
+    <label>Cidade:</label>
+    <input type="text" id="cidade">
+
+    <label>Estado:</label>
+    <input type="text" id="estado">
+
+    <label>Hora Início:</label>
+    <input type="time" id="horaInicio" required>
+
+    <label>Hora Fim:</label>
+    <input type="time" id="horaFim" required>
+
+    <label>Salário:</label>
+    <input type="number" id="salario" step="0.01" required>
+
+    <label>Tipo de Contrato:</label>
+    <input type="text" id="tipoContrato">
+
+    <label>Nível de Experiência:</label>
+    <input type="text" id="nivelExperiencia">
+
+    <label>Descrição da Vaga:</label>
+    <textarea id="descricaoVaga"></textarea>
+
+    <label>Empresa (ID):</label>
+    <input type="number" id="empresaId" required>
+
+    <button type="submit">Cadastrar Vaga</button>
+</form>
+<div class="resultado" id="resultado"></div>
+
+<h2>Buscar Candidatos para Vaga</h2>
+<form id="buscarForm">
+    <label>ID da Vaga:</label>
+    <input type="number" id="vagaId" required>
+    <button type="submit">Buscar Candidatos</button>
+</form>
+
+<div class="candidatos" id="candidatosResultado"></div>
+
+<script>
+// Cadastrar vaga
+const vagaForm = document.getElementById('vagaForm');
+const resultado = document.getElementById('resultado');
+
+vagaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const vaga = {
+        NomeVaga: document.getElementById('nomeVaga').value,
+        Cidade: document.getElementById('cidade').value,
+        Estado: document.getElementById('estado').value,
+        HoraInicio: document.getElementById('horaInicio').value,
+        HoraFim: document.getElementById('horaFim').value,
+        Salario: parseFloat(document.getElementById('salario').value),
+        TipoContrato: document.getElementById('tipoContrato').value,
+        NivelExperiencia: document.getElementById('nivelExperiencia').value,
+        DescricaoVaga: document.getElementById('descricaoVaga').value,
+        Empresas_id: parseInt(document.getElementById('empresaId').value)
+    };
+
+    try {
+        const res = await fetch('https://localhost:5001/api/vagas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(vaga)
+        });
+        const data = await res.json();
+        resultado.innerHTML = `Vaga cadastrada com sucesso! ID: ${data.id}`;
+    } catch (err) {
+        resultado.innerHTML = `Erro: ${err}`;
+    }
+});
+
+// Buscar candidatos para vaga
+const buscarForm = document.getElementById('buscarForm');
+const candidatosResultado = document.getElementById('candidatosResultado');
+
+buscarForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const vagaId = parseInt(document.getElementById('vagaId').value);
+
+    try {
+        const res = await fetch(`https://localhost:5001/api/matching/vaga/${vagaId}`);
+        const candidatos = await res.json();
+
+        if (candidatos.length === 0) {
+            candidatosResultado.innerHTML = '<p>Nenhum candidato encontrado para esta vaga.</p>';
+            return;
+        }
+
+        let html = '<ul>';
+        candidatos.forEach(c => {
+            html += `<li>
+                        <strong>${c.nome}</strong> - Resumo: ${c.resumoPerfil} - Score: ${c.score}% 
+                        <a href="/curriculos/${c.id}" target="_blank">Ver Currículo</a>
+                    </li>`;
+        });
+        html += '</ul>';
+        candidatosResultado.innerHTML = html;
+
+    } catch (err) {
+        candidatosResultado.innerHTML = `Erro: ${err}`;
+    }
+});
+</script>
+</body>
+</html>

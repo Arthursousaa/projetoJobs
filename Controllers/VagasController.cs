@@ -7,11 +7,19 @@ namespace projetoJobs.Controllers
 {
     public class VagasController : Controller
     {
-        public JobsContext _context = new JobsContext();
+        private readonly AppDbContext _context;
+
+        public VagasController(AppDbContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult Index()
         {
-            var vagas = _context.Vagas.Include(v => v.Empresas).ToList();
+            var vagas = _context.Vagas
+                .Include(v => v.Empresa)
+                .ToList();
+
             return View(vagas);
         }
 
