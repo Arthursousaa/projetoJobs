@@ -1,0 +1,36 @@
+@model projetoJobs.Models.Vaga
+
+<h2>Editar Vaga</h2>
+
+<form asp-action="Editar">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Nome da Vaga</label>
+        <input asp-for="NomeVaga" class="form-control" />
+    </div>
+
+    <div>
+        <label>Descrição</label>
+        <textarea asp-for="DescricaoVaga" class="form-control"></textarea>
+    </div>
+
+    <div>
+        <label>Salário</label>
+        <input asp-for="Salario" class="form-control" />
+    </div>
+
+    <div>
+        <label>Cidade</label>
+        <input asp-for="Cidade" class="form-control" />
+    </div>
+
+    <div>
+        <label>Estado</label>
+        <input asp-for="Estado" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+</form>
+
+<a asp-action="Dashboard" class="btn btn-secondary mt-2">Voltar</a>

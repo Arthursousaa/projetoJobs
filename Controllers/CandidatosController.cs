@@ -16,5 +16,21 @@ public class CandidatosController : Controller
         var candidatos = _context.Candidatos.ToList();
         return View(candidatos);
     }
+    public IActionResult Dashboard()
+{
+    var candidatoId = HttpContext.Session.GetInt32("CandidatoId");
+
+    if (candidatoId == null)
+    {
+        return RedirectToAction("LoginCandidato", "Auth");
+    }
+
+    var candidato = _context.Candidatos.FirstOrDefault(c => c.Id == candidatoId);
+
+    ViewBag.Nome = candidato?.Nome;
+
+    return View();
+}
+
 }
 

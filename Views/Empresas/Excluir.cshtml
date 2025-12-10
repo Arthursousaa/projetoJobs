@@ -1,0 +1,11 @@
+@model projetoJobs.Models.Vaga
+
+<h2>Excluir Vaga</h2>
+
+<p>Tem certeza que deseja excluir a vaga <strong>@Model.NomeVaga</strong>?</p>
+
+<form asp-action="Excluir">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Dashboard" class="btn btn-secondary">Cancelar</a>
+</form>

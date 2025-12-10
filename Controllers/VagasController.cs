@@ -14,21 +14,21 @@ namespace projetoJobs.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            var vagas = _context.Vagas
-                .Include(v => v.Empresa)
-                .ToList();
+        // public IActionResult Index()
+        // {
+        //     var vagas = _context.Vagas
+        //         .Include(v => v.Empresa)
+        //         .ToList();
 
-            return View(vagas);
-        }
+        //     return View(vagas);
+        // }
 
-        [HttpPost]
-        public IActionResult Criar(Vaga vaga)
-        {
-            _context.Vagas.Add(vaga);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        // [HttpPost]
+        // public IActionResult Criar(Vaga vaga)
+        // {
+        //     _context.Vagas.Add(vaga);
+        //     _context.SaveChanges();
+        //     return RedirectToAction("Index");
+        // }
     }
 }

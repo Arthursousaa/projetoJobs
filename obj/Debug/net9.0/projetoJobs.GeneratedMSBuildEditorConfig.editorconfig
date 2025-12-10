@@ -52,8 +52,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3RlckVtcHJlc2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Candidatos/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xpbmRleC5jc2h0bWw=
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Candidatos/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcRGV0YWxoZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Empresas/Excluir.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcRXhjbHVpci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/arthur.smachado1/OneDrive - SENAC - SP/projetoJobs/Views/Home/Index.cshtml]
