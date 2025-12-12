@@ -33,5 +33,28 @@ namespace projetoJobs.Controllers
 
             return View(vagas); // passa a lista de vagas para a view
         }
+
+        [HttpGet]
+        [Route("Editar/{id}")]
+        public IActionResult Editar(int id)
+        {
+            Vaga vaga = _context.Vagas.FirstOrDefault(x => x.Id == id);
+
+            return View(vaga);
+        }
+
+        [HttpGet]
+        [Route("Excluir/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            Vaga vaga = _context.Vagas.FirstOrDefault(x => x.Id == id);
+
+            _context.Remove(vaga);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Dashboard", "Empresas");
+        }
+
     }
 }

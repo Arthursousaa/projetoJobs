@@ -14,6 +14,7 @@ namespace projetoJobs.Controllers
             _context = context;
         }
 
+        
         // public IActionResult Index()
         // {
         //     var vagas = _context.Vagas

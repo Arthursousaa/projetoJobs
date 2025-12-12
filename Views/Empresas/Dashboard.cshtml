@@ -23,13 +23,16 @@
                     <td>@vaga.DescricaoVaga</td>
                     <td>R$ @vaga.Salario</td>
                     <td>
-                       <a href="@Url.Action("Detalhes", "Empresas", new { id = vaga.Id })" class="btn btn-primary btn-sm">Ver</a>
+                        @* <a asp-action="Detalhes" asp-controller="Empresas" asp-route-id="@vaga.Id"
+                            class="btn btn-primary btn-sm">Ver</a> *@
 
-                        <a asp-action="Editar" asp-route-id="@vaga.Id" class="btn btn-warning">Editar</a>
-                       <form asp-action="Excluir" asp-controller="Empresas" method="post" class="d-inline">
-                    <input type="hidden" name="id" value="@vaga.Id" />
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?');">  Excluir </button>
-            </form>
+                        <a asp-action="Editar" asp-controller="Empresas" asp-route-id="@vaga.Id" class="btn btn-warning">Editar</a>
+
+                        <form asp-action="Excluir" asp-controller="Empresas" asp-route-id="@vaga.Id" method="DELETE" class="d-inline">
+                            <input type="hidden" name="id" value="@vaga.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Tem certeza que deseja excluir?');"> Excluir </button>
+                        </form>
 
                     </td>
                 </tr>
