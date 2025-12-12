@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using projetoJobs.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace projetoJobs.Contexts;
 
@@ -23,6 +24,9 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<Empresa> Empresas { get; set; }
 
     public virtual DbSet<Vaga> Vagas { get; set; }
+
+    // ✅ ACRESCENTADO
+    public virtual DbSet<Candidatura> Candidaturas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -161,8 +165,53 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("FK__Vaga__Empresas_i__3C69FB99");
         });
 
+        // ----------------------------------------------------------
+        // ✅ ENTIDADE CANDIDATURA — ADICIONADO SEM MEXER NO RESTANTE
+        // ----------------------------------------------------------
+        modelBuilder.Entity<Candidatura>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.ToTable("Candidatura");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.DataCandidatura).HasColumnType("datetime");
+
+            entity.HasOne(c => c.Candidato)
+                .WithMany(c => c.Candidaturas)
+                .HasForeignKey(c => c.CandidatoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasOne(c => c.Vaga)
+                .WithMany(v => v.Candidaturas)
+                .HasForeignKey(c => c.VagaId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
         OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<Candidatura>(entity =>
+{
+    entity.HasKey(e => e.Id);
+
+    entity.ToTable("Candidatura");
+
+    entity.Property(e => e.Id).HasColumnName("id");
+    entity.Property(e => e.DataCandidatura).HasColumnType("datetime");
+
+    entity.HasOne(c => c.Candidato)
+        .WithMany(c => c.Candidaturas)
+        .HasForeignKey(c => c.CandidatoId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    entity.HasOne(c => c.Vaga)
+        .WithMany(v => v.Candidaturas)
+        .HasForeignKey(c => c.VagaId)
+        .OnDelete(DeleteBehavior.Cascade);
+});
+
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    
+    
 }

@@ -4,86 +4,62 @@
     ViewData["Title"] = "Criar Vaga";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Criar nova vaga</h2>
-        <a class="btn btn-secondary" asp-action="Dashboard" asp-controller="Empresas">Voltar</a>
+<h2>Criar Vaga</h2>
+
+<form asp-action="Criar" asp-controller="Empresas" method="post" class="card p-3" >
+    <div class="mb-3">
+        <label asp-for="NomeVaga" class="form-label">Nome da Vaga</label>
+        <input asp-for="NomeVaga" class="form-control" />
+        <span asp-validation-for="NomeVaga" class="text-danger"></span>
     </div>
 
-    <form asp-action="Criar" method="post">
-        @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label asp-for="DescricaoVaga" class="form-label">Descrição</label>
+        <textarea asp-for="DescricaoVaga" class="form-control"></textarea>
+        <span asp-validation-for="DescricaoVaga" class="text-danger"></span>
+    </div>
 
-        <div class="mb-3">
-            <label asp-for="NomeVaga" class="form-label">Título da vaga</label>
-            <input asp-for="NomeVaga" class="form-control" required />
-            <span asp-validation-for="NomeVaga" class="text-danger"></span>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="Salario" class="form-label">Salário</label>
+            <input asp-for="Salario" class="form-control" />
+            <span asp-validation-for="Salario" class="text-danger"></span>
         </div>
 
-        <div class="mb-3">
-            <label asp-for="DescricaoVaga" class="form-label">Descrição</label>
-            <textarea asp-for="DescricaoVaga" class="form-control" rows="5"></textarea>
-            <span asp-validation-for="DescricaoVaga" class="text-danger"></span>
+        <div class="col-md-4 mb-3">
+            <label asp-for="TipoContrato" class="form-label">Tipo de Contrato</label>
+            <input asp-for="TipoContrato" class="form-control" />
+            <span asp-validation-for="TipoContrato" class="text-danger"></span>
         </div>
 
-        <div class="row g-3">
-            <div class="col-md-4">
-                <label asp-for="Salario" class="form-label">Salário (R$)</label>
-                <input asp-for="Salario" type="number" step="0.01" class="form-control" />
-                <span asp-validation-for="Salario" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Cidade" class="form-label">Cidade</label>
-                <input asp-for="Cidade" class="form-control" />
-                <span asp-validation-for="Cidade" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Estado" class="form-label">Estado</label>
-                <input asp-for="Estado" class="form-control" maxlength="2" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
+        <div class="col-md-4 mb-3">
+            <label asp-for="NivelExperiencia" class="form-label">Nível de Experiência</label>
+            <input asp-for="NivelExperiencia" class="form-control" />
+            <span asp-validation-for="NivelExperiencia" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Cidade" class="form-label">Cidade</label>
+            <input asp-for="Cidade" class="form-control" />
+            <span asp-validation-for="Cidade" class="text-danger"></span>
         </div>
 
-        <div class="row g-3 mt-2">
-            <div class="col-md-3">
-                <label asp-for="HoraInicio" class="form-label">Hora Início</label>
-                <input asp-for="HoraInicio" type="time" class="form-control" />
-                <span asp-validation-for="HoraInicio" class="text-danger"></span>
-            </div>
-            <div class="col-md-3">
-                <label asp-for="HoraFim" class="form-label">Hora Fim</label>
-                <input asp-for="HoraFim" type="time" class="form-control" />
-                <span asp-validation-for="HoraFim" class="text-danger"></span>
-            </div>
-            <div class="col-md-3">
-                <label asp-for="TipoContrato" class="form-label">Tipo de contrato</label>
-                <select asp-for="TipoContrato" class="form-control">
-                    <option value="">-- selecione --</option>
-                    <option>CLT</option>
-                    <option>PJ</option>
-                    <option>Estágio</option>
-                    <option>Freelance</option>
-                </select>
-                <span asp-validation-for="TipoContrato" class="text-danger"></span>
-            </div>
-            <div class="col-md-3">
-                <label asp-for="NivelExperiencia" class="form-label">Nível</label>
-                <select asp-for="NivelExperiencia" class="form-control">
-                    <option value="">-- selecione --</option>
-                    <option>Estagiário</option>
-                    <option>Júnior</option>
-                    <option>Pleno</option>
-                    <option>Sênior</option>
-                </select>
-                <span asp-validation-for="NivelExperiencia" class="text-danger"></span>
-            </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="Estado" class="form-label">Estado</label>
+            <input asp-for="Estado" class="form-control" />
+            <span asp-validation-for="Estado" class="text-danger"></span>
         </div>
+    </div>
 
-        <div class="mt-3 d-flex gap-2">
-            <button type="submit" class="btn btn-success">Publicar vaga</button>
-            <a asp-action="Dashboard" asp-controller="Empresas" class="btn btn-secondary">Cancelar</a>
-        </div>
-    </form>
-</div>
+    <!-- Se a sua ação Criar do controller Empresa necessita do Id da empresa, envie-o aqui.
+         Caso a empresa já esteja autenticada e você pegue o id pela sessão, pode remover este campo. -->
+    <input type="hidden" asp-for="EmpresasId" />
+
+    <button type="submit" class="btn btn-success">Criar Vaga</button>
+    <a asp-action="Index" asp-controller="Empresas" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

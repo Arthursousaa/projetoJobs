@@ -1,33 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace projetoJobs.Models;
-
-public partial class Vaga
+namespace projetoJobs.Models
 {
-    public int Id { get; set; }
+    public class Vaga
+    {
+        public int Id { get; set; }
 
-    public string NomeVaga { get; set; } = null!;
+        public string? NomeVaga { get; set; }
+        public string? DescricaoVaga { get; set; }
+        public string? Cidade { get; set; }
+        public string? Estado { get; set; }
+        public decimal? Salario { get; set; }
+        public string? TipoContrato { get; set; }
+        public string? NivelExperiencia { get; set; }
 
-    public string? Cidade { get; set; }
+        // FK para Empresa (siga o mesmo nome usado no AppDbContext)
+        public int EmpresasId { get; set; }
+        public Empresa? Empresas { get; set; }
 
-    public string? Estado { get; set; }
-
-    public TimeOnly HoraInicio { get; set; }
-
-    public TimeOnly HoraFim { get; set; }
-
-    public decimal Salario { get; set; }
-
-    public string? TipoContrato { get; set; }
-
-    public string? NivelExperiencia { get; set; }
-
-    public string? DescricaoVaga { get; set; }
-
-    public int EmpresasId { get; set; }
-
-    public virtual ICollection<Curriculo> Curriculos { get; set; } = new List<Curriculo>();
-
-    public virtual Empresa Empresas { get; set; } = null!;
+        // Navegações
+        public virtual ICollection<Curriculo> Curriculos { get; set; } = new List<Curriculo>();
+        public virtual ICollection<Candidatura> Candidaturas { get; set; } = new List<Candidatura>();
+    }
 }

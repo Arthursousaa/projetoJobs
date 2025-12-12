@@ -1,0 +1,51 @@
+@model IEnumerable<projetoJobs.Models.Vaga>
+
+<h2>Vagas Disponíveis</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vaga in Model)
+        {
+            <tr>
+                <td>@vaga.NomeVaga</td>
+                <td>@vaga.DescricaoVaga</td>
+                <td>
+                    <button class="btn btn-primary" onclick="candidatar('@vaga.NomeVaga')">Candidatar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Candidaturas realizadas:</h3>
+<ul id="listaCandidaturas"></ul>
+
+<script>
+    // Array para armazenar candidaturas em memória
+    let candidaturas = [];
+
+    function candidatar(nomeVaga) {
+        candidaturas.push(nomeVaga);
+        atualizarLista();
+    }
+
+    function atualizarLista() {
+        const lista = document.getElementById('listaCandidaturas');
+        lista.innerHTML = '';
+        candidaturas.forEach((vaga, index) => {
+            const li = document.createElement('li');
+            li.textContent = vaga;
+            lista.appendChild(li);
+        });
+
+        // Salvar no sessionStorage para "empresa" acessar
+        sessionStorage.setItem('candidaturas', JSON.stringify(candidaturas));
+    }
+</script>

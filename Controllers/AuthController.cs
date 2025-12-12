@@ -61,7 +61,8 @@ namespace projetoJobs.Controllers
             }
 
             HttpContext.Session.SetInt32("CandidatoId", candidato.Id);
-            HttpContext.Session.SetString("CandidatoNome", candidato.Nome);
+            HttpContext.Session.SetString("CandidatoNome", candidato.Nome ?? "");
+
 
             return RedirectToAction("Dashboard", "Candidatos");
         }

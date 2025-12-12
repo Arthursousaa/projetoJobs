@@ -1,36 +1,55 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using projetoJobs.Contexts;
 using projetoJobs.Models;
 
-public class CandidatosController : Controller
+namespace projetoJobs.Controllers
 {
-    private readonly AppDbContext _context;
-
-    public CandidatosController(AppDbContext context)
+    public class CandidatosController : Controller
     {
-        _context = context;
+        private readonly AppDbContext _context;
+
+        public CandidatosController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // LISTA TODAS AS VAGAS DISPONÍVEIS
+        public IActionResult VagasDisponiveis()
+        {
+            var vagas = _context.Vagas
+                .Include(v => v.Empresas)
+                .ToList();
+
+            return View(vagas);
+        }
+
+        // ENVIAR CANDIDATURA
+        [HttpPost]
+        public IActionResult Candidatar(int vagaId)
+        {
+            var candidatoId = HttpContext.Session.GetInt32("CandidatoId");
+
+            if (candidatoId == null)
+                return RedirectToAction("Login", "Auth");
+
+            var candidatura = new Candidatura
+            {
+                CandidatoId = candidatoId.Value,
+                VagaId = vagaId,
+                DataCandidatura = DateTime.Now
+            };
+
+            _context.Candidaturas.Add(candidatura);
+            _context.SaveChanges();
+
+            TempData["msg"] = "Candidatura enviada com sucesso!";
+            return RedirectToAction("VagasDisponiveis");
+        }
+
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
     }
-
-    public IActionResult Index()
-    {
-        var candidatos = _context.Candidatos.ToList();
-        return View(candidatos);
-    }
-    public IActionResult Dashboard()
-{
-    var candidatoId = HttpContext.Session.GetInt32("CandidatoId");
-
-    if (candidatoId == null)
-    {
-        return RedirectToAction("LoginCandidato", "Auth");
-    }
-
-    var candidato = _context.Candidatos.FirstOrDefault(c => c.Id == candidatoId);
-
-    ViewBag.Nome = candidato?.Nome;
-
-    return View();
 }
-
-}
-

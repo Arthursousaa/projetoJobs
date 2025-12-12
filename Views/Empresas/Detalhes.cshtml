@@ -1,54 +1,30 @@
-@model projetoJobs.Models.Vaga
+@model projetoJobs.Models.Empresa
 
-@{
-    ViewData["Title"] = "Detalhes da Vaga";
-}
+<h2>Detalhes da Empresa</h2>
 
-<div class="container mt-5">
-    <div class="card shadow-lg border-0 rounded-4">
-        <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
-            <h2>@Model.NomeVaga</h2>
-        </div>
+<p><strong>Nome:</strong> @Model.Nome</p>
+<p><strong>Cidade:</strong> @Model.Cidade</p>
+<p><strong>Estado:</strong> @Model.Estado</p>
 
-        <div class="card-body p-4">
-            <h5 class="mb-3"><strong>Descrição</strong></h5>
-            <p>@Model.DescricaoVaga</p>
+<h3>Vagas da Empresa</h3>
 
-            <div class="row mb-4">
-                <div class="col-md-4">
-                    <strong>Salário:</strong><br />
-                    R$ @Model.Salario.ToString("N2")
-                </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vaga</th>
+            <th>Descrição</th>
+            <th>Salário</th>
+        </tr>
+    </thead>
 
-                <div class="col-md-4">
-                    <strong>Cidade:</strong><br />
-                    @Model.Cidade
-                </div>
-
-                <div class="col-md-4">
-                    <strong>Estado:</strong><br />
-                    @Model.Estado
-                </div>
-            </div>
-
-            <div class="row mb-4">
-                <div class="col-md-4">
-                    <strong>Hora Início:</strong><br />
-                    @Model.HoraInicio
-                </div>
-
-                <div class="col-md-4">
-                    <strong>Hora Fim:</strong><br />
-                    @Model.HoraFim
-                </div>
-
-                <div class="col-md-4">
-                    <strong>Tipo de Contrato:</strong><br />
-                    @Model.TipoContrato
-                </div>
-            </div>
-
-            <a href="@Url.Action("Dashboard", "Empresas")" class="btn btn-secondary">Voltar</a>
-        </div>
-    </div>
-</div>
+    <tbody>
+        @foreach (var vaga in Model.Vagas)
+        {
+            <tr>
+                <td>@vaga.NomeVaga</td>
+                <td>@vaga.DescricaoVaga</td>
+                <td>@vaga.Salario?.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

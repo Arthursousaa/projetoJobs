@@ -1,0 +1,36 @@
+@model List<projetoJobs.Models.ViewModels.CurriculoViewModel>
+
+<div style="width:90%;margin:auto;margin-top:40px;">
+    <h2 class="text-center mb-4">Currículos Recebidos</h2>
+
+    <table class="table table-striped table-bordered shadow">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Arquivo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.CandidatoNome</td>
+                    <td>@c.CandidatoEmail</td>
+                    <td>@c.Cidade</td>
+                    <td>@c.Estado</td>
+                    <td>@c.NomeArquivo</td>
+                    <td>
+                        <a href="@Url.Action("Download", "Curriculos", new { id = c.CurriculoId })" 
+                           class="btn btn-primary btn-sm">Baixar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a href="/Auth/Logout">Sair</a>

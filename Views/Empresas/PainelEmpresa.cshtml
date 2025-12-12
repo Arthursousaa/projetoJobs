@@ -1,0 +1,19 @@
+<h2>Área da Empresa - Candidaturas Recebidas</h2>
+
+<ul id="listaEmpresa"></ul>
+
+<script>
+    // Pegar candidaturas salvas na sessionStorage
+    const candidaturas = JSON.parse(sessionStorage.getItem('candidaturas')) || [];
+    const lista = document.getElementById('listaEmpresa');
+
+    if(candidaturas.length === 0){
+        lista.innerHTML = '<li>Nenhuma candidatura recebida.</li>';
+    } else {
+        candidaturas.forEach(vaga => {
+            const li = document.createElement('li');
+            li.textContent = `Candidato se candidatou à vaga: ${vaga}`;
+            lista.appendChild(li);
+        });
+    }
+</script>

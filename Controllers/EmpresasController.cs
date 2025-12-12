@@ -3,105 +3,35 @@ using Microsoft.EntityFrameworkCore;
 using projetoJobs.Contexts;
 using projetoJobs.Models;
 
-public class EmpresasController : Controller
+namespace projetoJobs.Controllers
 {
-    private readonly AppDbContext _context;
-
-    public EmpresasController(AppDbContext context)
+    [Route("[controller]")]
+    public class EmpresasController : Controller
     {
-        _context = context;
-    }
+        private readonly AppDbContext _context;
 
-    public IActionResult Dashboard()
-    {
-        int empresaId = HttpContext.Session.GetInt32("EmpresaId") ?? 0;
-
-        if (empresaId == 0)
-            return RedirectToAction("Login", "Auth");
-
-        var vagas = _context.Vagas
-            .Where(v => v.EmpresasId == empresaId)
-            .ToList();
-
-        return View(vagas);
-    }
-
-    // Criar vaga
-    public IActionResult Criar()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Criar(Vaga vaga)
-    {
-        vaga.EmpresasId = HttpContext.Session.GetInt32("EmpresaId") ?? 0;
-        _context.Vagas.Add(vaga);
-        _context.SaveChanges();
-
-        return RedirectToAction("Dashboard");
-    }
-
-    // Editar vaga
-    public IActionResult Editar(int id)
-    {
-        var vaga = _context.Vagas.Find(id);
-        if (vaga == null) return NotFound();
-        return View(vaga);
-    }
-
-    [HttpPost]
-    public IActionResult Editar(Vaga vaga)
-    {
-        _context.Vagas.Update(vaga);
-        _context.SaveChanges();
-        return RedirectToAction("Dashboard");
-    }
-
-    // Excluir vaga
-    [HttpPost]
-public IActionResult Excluir(int id)
-{
-    var vaga = _context.Vagas
-        .Include(v => v.Curriculos)
-        .FirstOrDefault(v => v.Id == id);
-
-    if (vaga == null)
-        return NotFound();
-
-    // excluir currículos vinculados
-    if (vaga.Curriculos.Any())
-    {
-        _context.Curriculos.RemoveRange(vaga.Curriculos);
-    }
-
-    // agora pode excluir a vaga
-    _context.Vagas.Remove(vaga);
-    _context.SaveChanges();
-
-    return RedirectToAction("Dashboard");
-}
-
-    [HttpPost]
-    public IActionResult ExcluirConfirmado(int id)
-    {
-        var vaga = _context.Vagas.Find(id);
-
-        if (vaga != null)
+        public EmpresasController(AppDbContext context)
         {
-            _context.Vagas.Remove(vaga);
-            _context.SaveChanges();
+            _context = context;
         }
 
-        return RedirectToAction("Dashboard");
-    }
+        [HttpGet("/Dashboard")]
+        public IActionResult Dashboard()
+        {
+            // Pegando o ID da empresa logada da sessão (ajuste conforme seu login)
+            int? empresaId = HttpContext.Session.GetInt32("EmpresaId");
 
-    // Detalhes
-    public IActionResult Detalhes(int id)
-    {
-        var vaga = _context.Vagas.Find(id);
-        if (vaga == null) return NotFound();
+            if (empresaId == null)
+                return RedirectToAction("Login", "Auth"); // se não estiver logada
 
-        return View(vaga);
+            // Carregando vagas da empresa com candidaturas e candidatos
+            var vagas = _context.Vagas
+                .Include(v => v.Curriculos)
+                .ThenInclude(c => c.Candidato)
+                .Where(v => v.EmpresasId == empresaId)
+                .ToList();
+
+            return View(vagas); // passa a lista de vagas para a view
+        }
     }
 }
